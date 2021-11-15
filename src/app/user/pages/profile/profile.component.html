@@ -1,12 +1,13 @@
 <div fxLayout="row wrap" fxLayout.lt-sm="column wrap" class="profile-container">
 
   <div fxFlex>
+    <!-- Header del formulario -->
     <div fxLayout="row" class="header-form">
       <img style="width: 100%;" class="background-form" src="../../../../assets/1.jpg">
     </div>
     <!-- Componente subir imagen reutilizable -->
     <app-form-profile></app-form-profile>
-    <!-- Formulario perfuk -->
+    <!-- Formulario perfil -->
     <form (ngSubmit)="saveForm()" fxLayout="row wrap" fxLayout.lt-md="column wrap" fxLayoutAlign.gt-md="center center" fxLayoutGap.gt-sm="20px"
       [formGroup]="formProfile">
 
