@@ -6,38 +6,44 @@
     </div>
     <!-- Componente subir imagen reutilizable -->
     <app-form-profile></app-form-profile>
-
-    <form fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px" [formGroup]="formProfile">
+    <!-- Formulario perfuk -->
+    <form (ngSubmit)="saveForm()" fxLayout="row wrap" fxLayout.lt-md="column wrap" fxLayoutAlign.gt-md="center center" fxLayoutGap.gt-sm="20px"
+      [formGroup]="formProfile">
 
       <mat-form-field fxFlex appearance="fill">
         <mat-label>Usuario</mat-label>
-        <input matInput placeholder="Ej. Lynross">
-       
+        <input matInput placeholder="Ej. Lynross" formControlName="username">
+        <mat-error *ngIf="requiredError('username')">El nombre es obligatorio</mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex appearance="fill">
         <mat-label>Correo electrónico</mat-label>
-        <input matInput placeholder="Ej. correo@hotmail.com">
-        <mat-error style="display: block; margin: 30px 0px;">Error XD</mat-error>
+        <input matInput placeholder="Ej. correo@hotmail.com" formControlName="email">
+        <mat-error *ngIf="requiredError('email')">Correo electrónico obligatorio</mat-error>
+        <mat-error *ngIf="requiredPattern('email')">Formato de correo electrónico incorrecto</mat-error>
       </mat-form-field>
 
 
       <div fxFlex="100" class="genre-options">
         <label>Género</label>
-        <mat-radio-group aria-label="Select an option">
+        <mat-radio-group aria-label="Select an option" formControlName="genre">
           <mat-radio-button value="M">Masculino</mat-radio-button>
           <mat-radio-button value="F">Femenino</mat-radio-button>
         </mat-radio-group>
-        <mat-error>Error XD</mat-error>
       </div>
 
       <div fxLayout="column" fxFlex="100" class="bio-textarea">
         <label fxFlex="100">Biografía</label>
         <mat-form-field fxFlex="100" appearance="fill">
-          <mat-label>Textarea</mat-label>
-          <textarea matInput></textarea>
+          <mat-label>Escribe tu biografía...</mat-label>
+          <textarea matInput formControlName="biography"></textarea>
         </mat-form-field>
-        <mat-error>Error XD</mat-error>
+      </div>
+
+      <div fxFlex>
+        <div fxFlex="100" fxLayout="row" style="margin: 10px 0px;">
+          <button [disabled]="formProfile.pending" fxFlex.lt-md="100" type="submit" mat-raised-button color="primary">GUARDAR</button>
+        </div>
       </div>
 
     </form>
@@ -45,7 +51,7 @@
 
   <div fxFlex>
     <app-map></app-map>
-
   </div>
+
 
 </div>
