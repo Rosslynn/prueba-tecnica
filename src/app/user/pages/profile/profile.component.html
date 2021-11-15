@@ -7,15 +7,45 @@
     <!-- Componente subir imagen reutilizable -->
     <app-form-profile></app-form-profile>
 
-    <div fxLayout="row">
-      <form>
+    <form fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px" [formGroup]="formProfile">
 
-      </form>
-    </div>
+      <mat-form-field fxFlex appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Ej. Lynross">
+       
+      </mat-form-field>
+
+      <mat-form-field fxFlex appearance="fill">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput placeholder="Ej. correo@hotmail.com">
+        <mat-error style="display: block; margin: 30px 0px;">Error XD</mat-error>
+      </mat-form-field>
+
+
+      <div fxFlex="100" class="genre-options">
+        <label>Género</label>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="M">Masculino</mat-radio-button>
+          <mat-radio-button value="F">Femenino</mat-radio-button>
+        </mat-radio-group>
+        <mat-error>Error XD</mat-error>
+      </div>
+
+      <div fxLayout="column" fxFlex="100" class="bio-textarea">
+        <label fxFlex="100">Biografía</label>
+        <mat-form-field fxFlex="100" appearance="fill">
+          <mat-label>Textarea</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-error>Error XD</mat-error>
+      </div>
+
+    </form>
   </div>
 
   <div fxFlex>
     <app-map></app-map>
+
   </div>
 
 </div>

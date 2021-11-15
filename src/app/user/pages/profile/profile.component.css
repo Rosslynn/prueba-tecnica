@@ -1,3 +1,23 @@
 .profile-container {
     margin: 40px 0px;
 }
+
+form {
+    margin-bottom: 50px;
+}
+
+.genre-options{
+    margin:10px 0px;
+    margin-bottom: 30px;
+}
+
+.genre-options label,
+.bio-textarea label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.genre-options mat-radio-group
+mat-radio-button {
+    margin-right: 20px;
+}
