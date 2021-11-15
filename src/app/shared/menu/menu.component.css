@@ -1,0 +1,23 @@
+.menu {
+  position: relative;
+  height: 50px;
+  background-color: rgb(118 179 200);
+  color: #fff;
+}
+
+.menu button {
+  position: absolute;
+  top: 2px;
+  left: 10px;
+}
+
+.menu button mat-icon {
+  font-size: 30px;
+}
+
+.menu .profile-text {
+  text-align: center;
+  height: 100%;
+  line-height: 46px;
+  font-size: 20px;
+}

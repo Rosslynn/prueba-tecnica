@@ -1,7 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { MenuComponent } from './menu/menu.component';
+import { NgmaterialModule } from '../ngmaterial/ngmaterial.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -9,7 +12,16 @@ import { MenuComponent } from './menu/menu.component';
     MenuComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FlexLayoutModule,
+    NgmaterialModule,
+    RouterModule
+  ],
+  exports: [
+    MenuComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class SharedModule { }
