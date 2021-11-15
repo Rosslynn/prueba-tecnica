@@ -1,1 +1,14 @@
-<p>form-profile works!</p>
+<div fxLayout="row" class="header-form">
+  <img style="width: 100%;" class="background-form" src="../../../../assets/1.jpg">
+</div>
+<div fxLayout="row" class="user-image">
+  <input type="file" fxHide #photoInput (change)="onPhotoSelected($event)">
+  <div class="img-container" (click)="photoInput.click()">
+    <img [src]="photoSelected || '../../../../assets/no-pp.jpg'">
+  </div>
+</div>
+<div fxLayout="row">
+  <form>
+
+  </form>
+</div>

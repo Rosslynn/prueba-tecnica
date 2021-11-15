@@ -7,6 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NgmaterialModule } from '../ngmaterial/ngmaterial.module';
 import { MapComponent } from './components/map/map.component';
 import { FormProfileComponent } from './components/form-profile/form-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,8 +19,9 @@ import { FormProfileComponent } from './components/form-profile/form-profile.com
   imports: [
     CommonModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
     UserRoutingModule,
-    NgmaterialModule
+    NgmaterialModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

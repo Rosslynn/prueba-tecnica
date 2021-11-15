@@ -1,0 +1,27 @@
+.header-form {
+  position: relative !important;
+}
+
+.user-image {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.img-container {
+  width: 100px;
+  text-align: center !important;
+  cursor: pointer;
+
+}
+
+.img-container img {
+  position: relative;
+  top: -50px;
+  width: 100%;
+  border: 3px solid #fff;
+  text-align: center;
+  vertical-align: top;
+  border-radius: 100%;
+}
