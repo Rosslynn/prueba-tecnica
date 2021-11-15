@@ -5,11 +5,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserRoutingModule } from './user-routing.module';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NgmaterialModule } from '../ngmaterial/ngmaterial.module';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,
