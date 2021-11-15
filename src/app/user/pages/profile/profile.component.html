@@ -1,11 +1,21 @@
-<div fxLayout="row wrap" class="profile-container">
+<div fxLayout="row wrap" fxLayout.lt-sm="column wrap" class="profile-container">
 
   <div fxFlex>
+    <div fxLayout="row" class="header-form">
+      <img style="width: 100%;" class="background-form" src="../../../../assets/1.jpg">
+    </div>
+    <!-- Componente subir imagen reutilizable -->
     <app-form-profile></app-form-profile>
+
+    <div fxLayout="row">
+      <form>
+
+      </form>
+    </div>
   </div>
 
   <div fxFlex>
     <app-map></app-map>
   </div>
-  
+
 </div>

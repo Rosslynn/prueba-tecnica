@@ -18,6 +18,10 @@ export class FormProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Función que recibe el archivo de imagen y lo transforma para previsualizarlo en el front-end
+   * @param photo - Archivo tipo file
+   */
   onPhotoSelected(photo: any) {
     if (photo.target.files && photo.target.files[0]) {
       const { type } = photo.target.files[0]
