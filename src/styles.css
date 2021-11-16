@@ -23,6 +23,10 @@ body {
   margin: 0 auto;
 }
 
+.mapboxgl-canvas-container canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
 
 @media screen and (max-width: 800px) {
   .container {
