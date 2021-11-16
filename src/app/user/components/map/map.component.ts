@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -30,7 +29,11 @@ export class MapComponent implements OnInit, AfterViewInit {
       zoom: this.zoom,
       center: this.center
     });
-    //Para que se acomode al contenedor
+    // Se crea el marcador que se utilizará
+    this.marker = new mapboxgl.Marker({
+      draggable: false
+    });
+    //Se le dice que se acomode a su contenedor
     this.map.on('load', () => {
       this.map.resize();
     });
@@ -82,17 +85,13 @@ export class MapComponent implements OnInit, AfterViewInit {
    * Función para añadir un marcador al mapa
    */
   setMarker() {
-    if (this.marker) {
-      this.marker.remove();
-    }
-    this.marker = new mapboxgl.Marker({
-      draggable: false
-    });
-    this.marker.setLngLat(this.center)
-      .setPopup(new mapboxgl.Popup().setHTML(`
-    <strong>Longitud: </strong> ${this.center[0]} <br>
-    <strong>Latitud: </strong> ${this.center[1]}
-    `))
+    this.marker
+      .setLngLat(this.center)
+      .setPopup(
+        new mapboxgl.Popup().setHTML(
+          ` <strong>Longitud: </strong> ${this.center[0]} <br>
+          <strong>Latitud: </strong> ${this.center[1]}
+        `))
       .addTo(this.map);
     this.marker.togglePopup();
   }
