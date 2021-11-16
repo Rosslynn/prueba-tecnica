@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 @Component({
   selector: 'app-map',
@@ -28,10 +30,11 @@ export class MapComponent implements OnInit, AfterViewInit {
       zoom: this.zoom,
       center: this.center
     });
-    // Se crea el marcador
-    this.marker = new mapboxgl.Marker({
-      draggable: true
+    //Para que se acomode al contenedor
+    this.map.on('load', () => {
+      this.map.resize();
     });
+    this.map.setMaxZoom(18);
     this.navigationControl();
     this.geolocateControl();
   }
@@ -71,6 +74,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       const { coords } = e;
       const { longitude, latitude } = coords;
       this.center = [longitude, latitude];
+      console.log('A');
       this.setMarker();
     });
   }
@@ -79,14 +83,19 @@ export class MapComponent implements OnInit, AfterViewInit {
    * Función para añadir un marcador al mapa
    */
   setMarker() {
-    this.marker
-    .setLngLat(this.center)
-    .setPopup(new mapboxgl.Popup().setHTML(`
+    if (this.marker) {
+      this.marker.remove();
+    }
+    this.marker = new mapboxgl.Marker({
+      draggable: false
+    });
+    this.marker.setLngLat(this.center)
+      .setPopup(new mapboxgl.Popup().setHTML(`
     <strong>Longitud: </strong> ${this.center[0]} <br>
     <strong>Latitud: </strong> ${this.center[1]}
     `))
-    .addTo(this.map);
-    this.marker.togglePopup(); 
+      .addTo(this.map);
+    this.marker.togglePopup();
   }
 }
 
