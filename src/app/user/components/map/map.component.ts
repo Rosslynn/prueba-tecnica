@@ -74,7 +74,6 @@ export class MapComponent implements OnInit, AfterViewInit {
       const { coords } = e;
       const { longitude, latitude } = coords;
       this.center = [longitude, latitude];
-      console.log('A');
       this.setMarker();
     });
   }
